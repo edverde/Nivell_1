@@ -131,9 +131,9 @@
         $num = rand(0,1); //rand retorna un número entre els parametres que coloques.
         echo 'el numero aleatori és '.$num;
         if($num != 0){
-            return true;
+            return false;
         }else{ 
-            return false; 
+            return true; 
         }
     
     }
