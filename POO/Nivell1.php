@@ -44,6 +44,51 @@
 
     $empleat1->mostrar();
     $empleat2->mostrar();
+
+    // <!-- ----------------------------------------------------------------------------
+    // exercici 2
+    // ---------------------------------------------------------------------------- -->
+    
+    echo '<h2><u><strong>Exercici 2 </strong></u></h2><br>';
+    echo "Escriu un programa que defineixi una classe Shape amb un constructor que rebi com a paràmetres l'ample i alt. Defineix dues subclasses; Triangle i Rectangle que heretin de Shape i que calculin respectivament l'àrea de la forma area().<br>
+
+    A l'arxiu main defineix dos objectes, un triangle i un rectangle i truca al mètode area de cadascun.<br><br>";
+
+    //Superclase
+    class Shape{
+        //atributs
+        var $base;
+        var $altura;
+        //constructor
+        function shape($base, $altura){
+            $this->base = $base;
+            $this->altura = $altura;
+        }
+
+    }
+    // subclases
+    class Triangle extends Shape{
+        function area(){
+            $resultat = ($this->base*$this->altura)/2;
+            echo "La base és " . $this->base . " i l'altura és " . $this->altura . ". L'area total del triangle és " . $resultat . "<br>";
+        }
+    }
+    class Rectangle extends Shape{
+        function area(){
+           $resultat = $this->base*$this->altura;
+           echo "La base és " . $this->base . " i l'altura és " . $this->altura . ". L'area total del rectangle és " . $resultat . "<br>";
+        }
+    }
+
+    //Programa
+    $triangle1 = new Triangle(5,8);
+    $triangle1->area();
+
+    $rectangle = new Rectangle(28, 35);
+    $rectangle->area();
+
+
+
     ?>
 </body>
 </html>
