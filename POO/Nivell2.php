@@ -36,15 +36,13 @@
         static $cont=0;
         
         //mètodes
-        
-       
         function throw(){
             $caraRandom = array_rand(PokerDice::$cara);
             return $caraRandom.'<br>';
         }
         function shapeName(){
             $caraRandom = array_rand(PokerDice::$cara);
-            return 'Has tirat el dau i ha sortit '.PokerDice::$cara[$caraRandom].'<br>';
+            echo 'Has tirat el dau i ha sortit '.PokerDice::$cara[$caraRandom].'<br>';
         }
         function tirada(){
             $dau1 = new PokerDice;
@@ -53,35 +51,40 @@
             $dau4 = new PokerDice;
             $dau5 = new PokerDice;
             PokerDice::$cont++;
-            echo $dau1->throw() . $dau2->throw() . $dau3->throw() . $dau4->throw() .$dau5->throw();
+            echo $dau1->throw() . $dau2->throw() . $dau3->throw() . $dau4->throw() .$dau5->throw().'<br>';
+        }
+        function tirada_alternativa(){
+            $dau1 = new PokerDice;
+            $dau2 = new PokerDice;
+            $dau3 = new PokerDice;
+            $dau4 = new PokerDice;
+            $dau5 = new PokerDice;
+            PokerDice::$cont++;
+            echo $dau1->shapeName() . $dau2->shapeName() . $dau3->shapeName() . $dau4->shapeName() .$dau5->shapeName().'<br>';
         }
         function getTotalThrows(){
             PokerDice::$cont;
-            echo 'has tirat '.PokerDice::$cont.' vegades<br>' ;
+            echo 'has tirat '.PokerDice::$cont.' vegades.<br>' ;
         }
-
-
-
     }
    
     $jugada = new PokerDice;
 
-   
-    $jugada->tirada();
-    $jugada->getTotalThrows();
-    $jugada->tirada();
-    $jugada->getTotalThrows();
-    $jugada->tirada();
-    $jugada->getTotalThrows();
+    $jugada->throw();
 
+    $jugada->shapeName();
+    echo '<br>';
+    
+    $jugada->tirada();
+    
+    $jugada->tirada();
+    
+    $jugada->tirada();
 
+    $jugada->tirada_alternativa();
 
+    $jugada->getTotalThrows();
     
-    
-    
-    // $caras = array('As','K','Q','J');
-    // $contar = count($caras);
-    // echo $caras;
     ?>
 
 </body>
