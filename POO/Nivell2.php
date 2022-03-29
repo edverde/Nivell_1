@@ -27,35 +27,52 @@
     class PokerDice{
 
         //atributs
-        public $cara = array("A"=>'As', 
+        static $cara = array("A"=>'As', 
                             "K"=>'rei', 
                             "Q"=>'reina', 
                             "J"=>'jota',
                              7=> 'set', 
                              8=> 'vuit');
+        static $cont=0;
         
         //mètodes
         
        
         function throw(){
-            $caraRandom = array_rand($this->cara);
+            $caraRandom = array_rand(PokerDice::$cara);
             return $caraRandom.'<br>';
         }
         function shapeName(){
-            $caraRandom = array_rand($this->cara);
-            return 'Has tirat el dau i ha sortit '.$this->cara[$caraRandom].'<br>';
+            $caraRandom = array_rand(PokerDice::$cara);
+            return 'Has tirat el dau i ha sortit '.PokerDice::$cara[$caraRandom].'<br>';
         }
+        function tirada(){
+            $dau1 = new PokerDice;
+            $dau2 = new PokerDice;
+            $dau3 = new PokerDice;
+            $dau4 = new PokerDice;
+            $dau5 = new PokerDice;
+            PokerDice::$cont++;
+            echo $dau1->throw() . $dau2->throw() . $dau3->throw() . $dau4->throw() .$dau5->throw();
+        }
+        function getTotalThrows(){
+            PokerDice::$cont;
+            echo 'has tirat '.PokerDice::$cont.' vegades<br>' ;
+        }
+
+
+
     }
    
-    $dau1 = new PokerDice;
-    $dau2 = new PokerDice;
-    $dau3 = new PokerDice;
+    $jugada = new PokerDice;
 
-    
-    echo $dau1->throw();
-    echo $dau2->shapeName();
-    echo $dau3->throw();
    
+    $jugada->tirada();
+    $jugada->getTotalThrows();
+    $jugada->tirada();
+    $jugada->getTotalThrows();
+    $jugada->tirada();
+    $jugada->getTotalThrows();
 
 
 
