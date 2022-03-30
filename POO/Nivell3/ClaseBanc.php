@@ -2,10 +2,10 @@
 class Account{
     
     //atributs
-    var $numcompte;
-    var $nom;
-    var $cognom;
-    var $saldo;
+    private $numcompte;
+    private $nom;
+    private $cognom;
+    private $saldo;
 
     //constructor
     public function account($numcompte, $nom, $cognom, $saldo){
@@ -45,9 +45,17 @@ class Account{
     //mètodes
     function deposit($amount){
         $this->saldo +=$amount;
+        $resultat= "Operacio reallitzada, has ingresat $amount euros.<br><strong>Saldo total: </strong>".$this->saldo."$.<br>";
+        return $resultat;
     }
     function withdraw($amount){
         $this->saldo -=$amount;
+        if($this->saldo<0){
+            $resultat = 'No hi ha suficient saldo.<br>';
+        }else{
+            $resultat = "Operacio reallitzada, has retirat $amount euros.<br><strong>Saldo total: </strong>".$this->saldo."$.<br>";
+        }
+        return $resultat;
     }
 }
 
