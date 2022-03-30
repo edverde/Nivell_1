@@ -50,6 +50,5 @@ class Account{
         $this->saldo -=$amount;
     }
 }
-$usuario = new Account(1324,'ed','va',1000);
-echo $usuario->getNom();
+
 ?>
