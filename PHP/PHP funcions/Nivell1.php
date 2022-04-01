@@ -68,8 +68,8 @@
     echo '<h2><u><strong>Exercici 4 </strong></u></h2><br>';
     echo "Per prevenir oblits a l'utilitzar la nostra meravellosa opció \"amagatall\" establirem un paràmetre per defecte igual a 10 a la funció que s'encarrega de fer aquest compte.<br><br>";
 
-    function amagatall($numero){
-        $numero=10;
+    function amagatall($numero=10){
+        
         for($i=0; $i<=$numero; $i+=2){
             if($i == 10){
                 echo $i.".<br>";

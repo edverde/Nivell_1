@@ -5,11 +5,11 @@ if(!empty($_POST['nombre']) && !empty($_POST['pass'])){
     $usuario = $_POST['nombre'];
     $clave = $_POST['pass'];
     
-    if($usuario == "ed" && $clave == "1234"){
+    if($usuario == "eddie" && $clave == "123"){
         
         $error = "accedio";
         
-       header("Location: menu.html");
+       header("Location: menu.php");
     }else{
         
         $error= "incorrecto";
@@ -17,25 +17,20 @@ if(!empty($_POST['nombre']) && !empty($_POST['pass'])){
        
     }
     // if($usuario == "sonia" && $clave == "1234"){
-    //     header("Location: menu.html");
+        
     //     $error = "accedio";
+        
+    //    header("Location: menu.php");
     // }else{
-    //     header("Location: index.php?error=$error");
+        
     //     $error= "incorrecto";
+    //     header("Location: index.php?error=$error");
+       
     // }
+    
 }else{
-   
-   
     $error='vacio';
     header("Location: index.php?error=$error");
-     
 }
-// $usuario = $_POST['nombre'];
-// $clave = $_POST['pass'];
 
-//conectar base de datos
-
-// $conexion = mysqli_conect("localhost","root","","bdprueba");
-// $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' and clave='$clave'";
-// $resultado = mysqli_query($conexion, $consulta);
 ?>
