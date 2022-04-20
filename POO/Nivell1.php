@@ -27,7 +27,7 @@
         //mètode
         function mostrar(){
             echo  'El teu nom és: '.$this->nom;
-            if($this->sou >= 6000){
+            if($this->sou > 6000){
                 echo "El teu sou és de " . $this->sou . "€ i has de pagar impostos<br>";
             }else{
                 echo "El teu sou és de " . $this->sou . "€ i no has de pagar impostos<br>";
