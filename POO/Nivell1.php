@@ -65,14 +65,16 @@
             $this->base = $base;
             $this->altura = $altura;
         }
-        public function area(){
-            return $this->base * $this->altura;
-        }
+        //getters
         public function getBase(){
             return $this->base;
         }
         public function getAltura(){
             return $this->altura;
+        }
+        //mètodes
+        public function area(){
+            return $this->base * $this->altura;
         }
     }
     // subclases
@@ -83,19 +85,16 @@
         }
     }
     class Rectangle extends Shape{
-       
+      
+        //Que bien heredar cositas del papi ^;^
     }
 
-    //Programa
+    //Programa en Main
     $triangle1 = new Triangle(5,8);
     echo 'El triangle te una base de '.$triangle1->getBase().' i una altura de '.$triangle1->getAltura().'. El total de l\'area és de '.$triangle1->area().'<br>';
 
     $rectangle = new Rectangle(28, 35);
     echo 'El rectangle te una base de '.$rectangle->getBase().' i una altura de '.$rectangle->getAltura().'. El total de l\'area és de '.$rectangle->area().'<br>';
-
-    
-
-
 
     ?>
 </body>
