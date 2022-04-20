@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    // <!-- ---------------------------------------------------------------------
+    // <!-- ----------------------------------------------------------------------------
     // exercici 1 
     // ---------------------------------------------------------------------------- -->
     
@@ -17,8 +17,8 @@
 
     class Employee{
         //atributs
-        var $nom;
-        var $sou;
+        private $nom;
+        private $sou;
         //Constructor
         function initialize($nom, $sou){
             $this->nom = $nom;
@@ -50,42 +50,50 @@
     // ---------------------------------------------------------------------------- -->
     
     echo '<h2><u><strong>Exercici 2 </strong></u></h2><br>';
-    echo "Escriu un programa que defineixi una classe Shape amb un constructor que rebi com a paràmetres l'ample i alt. Defineix dues subclasses; Triangle i Rectangle que heretin de Shape i que calculin respectivament l'àrea de la forma area().<br>
+    echo "Escriu un programa que defineixi una classe Shape amb un constructor que rebi com a paràmetres l'ample i alt. Defineix dues subclasses; 
+    Triangle i Rectangle que heretin de Shape i que calculin respectivament l'àrea de la forma area().<br>
 
     A l'arxiu main defineix dos objectes, un triangle i un rectangle i truca al mètode area de cadascun.<br><br>";
 
     //Superclase
     class Shape{
         //atributs
-        var $base;
-        var $altura;
+        public $base;
+        public $altura;
         //constructor
-        function shape($base, $altura){
+        function __construct($base, $altura){
             $this->base = $base;
             $this->altura = $altura;
         }
-
+        public function area(){
+            return $this->base * $this->altura;
+        }
+        public function getBase(){
+            return $this->base;
+        }
+        public function getAltura(){
+            return $this->altura;
+        }
     }
     // subclases
     class Triangle extends Shape{
-        function area(){
-            $resultat = ($this->base*$this->altura)/2;
-            echo "La base és " . $this->base . " i l'altura és " . $this->altura . ". L'area total del triangle és " . $resultat . "<br>";
+
+        function area(){ //override
+            return ($this->base * $this->altura)/2;
         }
     }
     class Rectangle extends Shape{
-        function area(){
-           $resultat = $this->base*$this->altura;
-           echo "La base és " . $this->base . " i l'altura és " . $this->altura . ". L'area total del rectangle és " . $resultat . "<br>";
-        }
+       
     }
 
     //Programa
     $triangle1 = new Triangle(5,8);
-    $triangle1->area();
+    echo 'El triangle te una base de '.$triangle1->getBase().' i una altura de '.$triangle1->getAltura().'. El total de l\'area és de '.$triangle1->area().'<br>';
 
     $rectangle = new Rectangle(28, 35);
-    $rectangle->area();
+    echo 'El rectangle te una base de '.$rectangle->getBase().' i una altura de '.$rectangle->getAltura().'. El total de l\'area és de '.$rectangle->area().'<br>';
+
+    
 
 
 
