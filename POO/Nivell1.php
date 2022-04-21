@@ -85,17 +85,24 @@
         }
     }
     class Rectangle extends Shape{
-      
-        //Que bien heredar cositas del papi ^;^
+       public function area(){
+           if($this->base == $this->altura){
+                return "... ojo! aixó és un quadrat!";
+           }else{
+            return parent::area(); //Que bien heredar cositas del papi ^;^
+           }
+       }
     }
 
     //Programa en Main
     $triangle1 = new Triangle(5,8);
     echo 'El triangle te una base de '.$triangle1->getBase().' i una altura de '.$triangle1->getAltura().'. El total de l\'area és de '.$triangle1->area().'<br>';
 
-    $rectangle = new Rectangle(28, 35);
+    $rectangle = new Rectangle(25, 28);
     echo 'El rectangle te una base de '.$rectangle->getBase().' i una altura de '.$rectangle->getAltura().'. El total de l\'area és de '.$rectangle->area().'<br>';
 
+    $cuadrat = new Rectangle(28, 28);
+    echo 'El rectangle te una base de '.$cuadrat->getBase().' i una altura de '.$cuadrat->getAltura().'. El total de l\'area és de '.$cuadrat->area().'<br>';
     ?>
 </body>
 </html>
