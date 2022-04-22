@@ -56,10 +56,10 @@
     A l'arxiu main defineix dos objectes, un triangle i un rectangle i truca al mètode area de cadascun.<br><br>";
 
     //Superclase
-    class Shape{
+    abstract class Shape{
         //atributs
-        public $base;
-        public $altura;
+        protected $base;
+        protected $altura;
         //constructor
         function __construct($base, $altura){
             $this->base = $base;
@@ -73,9 +73,7 @@
             return $this->altura;
         }
         //mètodes
-        public function area(){
-            return $this->base * $this->altura;
-        }
+        abstract protected function area();
     }
     // subclases
     class Triangle extends Shape{
@@ -89,7 +87,7 @@
            if($this->base == $this->altura){
                 return "... ojo! aixó és un quadrat!";
            }else{
-            return parent::area(); //Que bien heredar cositas del papi ^;^
+            return $this->base * $this->altura;
            }
        }
     }
